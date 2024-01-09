@@ -5,7 +5,6 @@ const Usuario = require('../models/Usuario') // NUESTRO MODELO PARA PERMITIR GEN
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const auth = require('../middlewares/authorization')
-const mailer = require('../controller/mailController')
 
 //app.get('/obtener', auth, async (req, res) => {
 app.get('/obtener', async (req, res) => {
