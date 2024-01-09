@@ -177,54 +177,6 @@ app.post('/borrar', async (req, res) => {
 
 
 
-app.post('/contacto', async (req, res) => {
-	const { nombre, telefono, correo, mensaje } = req.body
 
-	try {
-	
-		let errors = Array();
-
-		if (!nombre) {
-			errors.push({ msg: "El campo nombre debe de contener un valor valido" });
-		}
-		if (!correo) {
-			errors.push({ msg: "El campo correo debe de contener un valor" });
-		}
-		if (!mensaje) {
-			errors.push({ msg: "El campo mensaje debe de contener un valor" });
-		}
-		if (!telefono) {
-			errors.push({ msg: "El campo telefono debe de contener un valor" });
-		}
-
-		if (errors.length >= 1) {
-
-			return res.status(500)
-				.json({
-					msg: 'Errores en los parametros',
-					error: true,
-					details: errors
-				});
-
-		}
-
-		let message = {
-			from: process.env.MAIL, // sender address
-			to: process.env.MAIL, // list of receivers
-			subject: "Contactanos", // Subject line
-			text: "", // plain text body
-			html: `<p><strong>Datos de contacto:<strong></p><p><strong>Nombre:<strong> ${nombre}</p><p><strong>Teléfono:<strong> ${telefono}</p><p><strong>Correo:<strong> ${correo}</p><p><strong>Mensaje:<strong> ${mensaje}</p>`, // html body
-		}
-
-		const info = await mailer.sendMail(message);
-		console.log(info);
-
-		res.status(200).json({ error: false, msg: "Se ha enviado el correo electronico" })
-
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({ msg: 'Hubo un error obteniendo los datos', error: true, details: error })
-	}
-})
 
 module.exports = app
