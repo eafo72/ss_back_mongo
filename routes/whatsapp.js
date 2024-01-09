@@ -146,7 +146,7 @@ async function EnviarMensajeWhastpapp(texto, number) {
 
   const options = {
     host: "graph.facebook.com",
-    path: "/v17.0/197145163483349/messages",
+    path: "/v17.0/242077295646340/messages",
     method: "POST",
     body: data,
     headers: {
@@ -317,7 +317,7 @@ app.post("/enviar", async (req, res) => {
 
     const options = {
       host: "graph.facebook.com",
-      path: "/v17.0/197145163483349/messages",
+      path: "/v17.0/242077295646340/messages",
       method: "POST",
       body: data,
       headers: {
