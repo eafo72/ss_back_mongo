@@ -212,7 +212,7 @@ app.post("/", async (req, res) => {
 //este endpoint solo sirve para que meta verifique el funcionamiento (es solo una vez)
 app.get("/", (req, res) => {
   try {
-    const tokenMell = "MELLAPIMETA"; //poner este token en la api de meta (webhook)
+    const tokenMell = "SSAPIMETA"; //poner este token en la api de meta (webhook)
     const token = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
 
