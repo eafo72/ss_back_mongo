@@ -9,6 +9,9 @@ const clientSchema = mongoose.Schema(
 		},
 		nombre: {
 			type: String
+		},
+		asesor: {
+			type: String
 		}
 	},
 	{

@@ -302,7 +302,7 @@ app.get("/nombreCliente/:number", async (req, res) => {
 
 //ENVIAR MENSAJE
 app.post("/enviar", async (req, res) => {
-  const {nombre, number, mensaje } = req.body;
+  const {nombre, asesor, number, mensaje } = req.body;
         
     data = JSON.stringify({
       messaging_product: "whatsapp",
@@ -325,7 +325,6 @@ app.post("/enviar", async (req, res) => {
         "Authorization": "Bearer "+metatoken,
       },
     };
-
 
   try {
     const req = https.request(options, (res) => {
@@ -358,7 +357,8 @@ app.post("/enviar", async (req, res) => {
           telefono: number
         },
         {
-        nombre: nombre
+        nombre: nombre,
+        asesor:asesor
         },
         { new: true }
       );
@@ -367,7 +367,8 @@ app.post("/enviar", async (req, res) => {
       //sino existe create
       await Cliente.create({
         telefono:number,
-        nombre: nombre
+        nombre: nombre,
+        asesor:asesor
       })
     }  
 
